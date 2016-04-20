@@ -4,7 +4,8 @@ MAINTAINER Mike Shuey "shuey@fmepnet.org"
 ENV OHPC_RELEASE=1.1 \
     OHPC_PKG_VERSION=1.1-1
 
-RUN yum install -y epel-release && \
+RUN yum makecache && \
+    yum install -y epel-release && \
     rpm -ivh http://build.openhpc.community/OpenHPC:/${OHPC_RELEASE}/CentOS_7.2/x86_64/ohpc-release-${OHPC_PKG_VERSION}.x86_64.rpm && \
     yum clean all
 
